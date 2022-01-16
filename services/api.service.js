@@ -9,7 +9,7 @@ const getWeather = async () => {
 
   if (!token) {
     throw new Error(
-      "Не задан API ключ, задайте его через команду -t [API_KEY]"
+      "Не задан API ключ, зарегистрируйтесь на сайте https://openweathermap.org/ и задайте api ключ через команду -t [API_KEY]"
     );
   }
 
@@ -32,7 +32,9 @@ const getWeather = async () => {
     .replace(/[\.|\,][0-9]{1,}$/, "");
 
   const windSpeed = data.wind.speed.toString().replace(/[\.|\,][0-9]{1,}$/, "");
-  const feelsLike = data.main.feels_like.toString().replace(/[\.|\,][0-9]{1,}$/, "");
+  const feelsLike = data.main.feels_like
+    .toString()
+    .replace(/[\.|\,][0-9]{1,}$/, "");
 
   return dedent(`Город: ${data.name}  (${data.weather[0].description})
   Температура: ${temperature} °C   (ощущается как: ${feelsLike} °C)
