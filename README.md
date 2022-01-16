@@ -1,1 +1,1 @@
-# node_weather
+# nodejs weather-cli
